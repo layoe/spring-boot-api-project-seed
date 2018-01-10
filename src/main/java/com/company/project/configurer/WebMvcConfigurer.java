@@ -41,7 +41,6 @@ import java.util.List;
 public class WebMvcConfigurer extends WebMvcConfigurerAdapter {
     @Resource
     private MyInterceptor myInterceptor;//拦截器
-
     private final Logger logger = LoggerFactory.getLogger(WebMvcConfigurer.class);
     @Value("${spring.profiles.active}")
     private String env;//当前激活的配置文件

@@ -1,6 +1,9 @@
 package com.company.project.web;
+
+import com.alibaba.fastjson.JSON;
 import com.company.project.core.Result;
 import com.company.project.core.ResultGenerator;
+import com.company.project.dto.ParamDto;
 import com.company.project.model.User;
 import com.company.project.service.UserService;
 import com.github.pagehelper.PageHelper;
@@ -42,6 +45,12 @@ public class UserController {
     public Result detail(@RequestParam Integer id) {
         User user = userService.findById(id);
         return ResultGenerator.genSuccessResult(user);
+    }
+
+    @PostMapping("/detail")
+    public Result detail2(@RequestParam String param) {
+        ParamDto dto = JSON.parseObject(param, ParamDto.class);
+        return ResultGenerator.genSuccessResult(dto);
     }
 
     @PostMapping("/list")
