@@ -12,4 +12,28 @@
     <result column="sex" jdbcType="INTEGER" property="sex" />
     <result column="register_date" jdbcType="TIMESTAMP" property="registerDate" />
   </resultMap>
+
+  <!--<sql id="Base_Column_List" >-->
+    <!--id, userName, passWord, user_sex, nick_name-->
+  <!--</sql>-->
+
+  <!--<sql id="Custom_Column_List" >-->
+    <!--id, userName, sex, nick_name-->
+  <!--</sql>-->
+
+  <!--<select id="getOne" parameterType="java.lang.Integer" resultMap="BaseResultMap" >-->
+    <!--SELECT-->
+    <!--<include refid="Custom_Column_List" />-->
+    <!--FROM users-->
+    <!--WHERE id = #{id}-->
+  <!--</select>-->
+  <sql id="Base_Column_List" > id, username, password, sex, nick_name
+  </sql>
+  <select id="getAll" resultMap="BaseResultMap"  >
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM users
+  </select>
+
+
 </mapper>
