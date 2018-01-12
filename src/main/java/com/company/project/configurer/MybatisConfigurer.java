@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
+import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.spring.mapper.MapperScannerConfigurer;
 
 import javax.annotation.Resource;
@@ -31,7 +32,7 @@ public class MybatisConfigurer {
         factory.setDataSource(dataSource);
         factory.setTypeAliasesPackage(MODEL_PACKAGE);
 
-        //配置分页插件，详情请查阅官方文档
+        // 配置分页插件，详情请查阅官方文档
         PageHelper pageHelper = new PageHelper();
         Properties properties = new Properties();
         properties.setProperty("pageSizeZero", "true");//分页尺寸为0时查询所有纪录不再执行分页
@@ -53,6 +54,8 @@ public class MybatisConfigurer {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
         mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactoryBean");
         mapperScannerConfigurer.setBasePackage(MAPPER_PACKAGE);
+        // 通用接口都有顶层的接口
+        // mapperScannerConfigurer().setMarkerInterface(Mapper.class);
 
         //配置通用Mapper，详情请查阅官方文档
         Properties properties = new Properties();

@@ -1,7 +1,8 @@
 package com.company.project.model;
 
-import java.util.Date;
 import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
 
 public class User {
     @Id
@@ -19,6 +20,17 @@ public class User {
 
     @Column(name = "register_date")
     private Date registerDate;
+
+    @Transient
+    private List<UserStr> listUserStr;
+
+    public List<UserStr> getListUserStr() {
+        return listUserStr;
+    }
+
+    public void setListUserStr(List<UserStr> listUserStr) {
+        this.listUserStr = listUserStr;
+    }
 
     /**
      * @return id
@@ -103,4 +115,5 @@ public class User {
     public void setRegisterDate(Date registerDate) {
         this.registerDate = registerDate;
     }
+
 }

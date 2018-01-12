@@ -48,8 +48,10 @@ public class UserController {
     @PostMapping("/detail")
     public Result detail2(@RequestParam String param) {
 //        ParamDto dto = JSON.parseObject(param, ParamDto.class);
-        User user = userService.getOne(1);
-        return ResultGenerator.genSuccessResult(user);
+//         User user = userService.getOne(1);
+        int size = userService.getSize();
+
+        return ResultGenerator.genSuccessResult(userService.getJoinData());
     }
 
     @PostMapping("/list")
