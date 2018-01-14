@@ -51,7 +51,7 @@ public class UserController {
 //         User user = userService.getOne(1);
         int size = userService.getSize();
 
-        return ResultGenerator.genSuccessResult(userService.getJoinData());
+        return ResultGenerator.genSuccessResult(size);
     }
 
     @PostMapping("/list")

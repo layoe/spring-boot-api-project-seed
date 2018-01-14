@@ -11,9 +11,9 @@ public class User2 extends User{
         return listUserStr;
     }
 
+
     public void setListUserStr(List<UserStr> listUserStr) {
         this.listUserStr = listUserStr;
     }
-
 
 }
