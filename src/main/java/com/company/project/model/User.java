@@ -1,10 +1,13 @@
 package com.company.project.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class User {
+public class User implements Serializable {
+    private static final long serialVersionUID = -1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -116,4 +119,8 @@ public class User {
         this.registerDate = registerDate;
     }
 
+    @Override
+    public String toString(){
+        return "123";
+    }
 }
